@@ -87,7 +87,7 @@ export const Separator = styled.div `
 
 `
 
-export const StartCountdowButton = styled.button `
+export const BaseCountdowButton = styled.button `
     width: 100%;
     border: 0;
     padding: 1rem;
@@ -102,17 +102,33 @@ export const StartCountdowButton = styled.button `
 
     cursor: pointer;
 
-    background: ${(props) => props.theme['green-500']} ;
     color: ${(props) => props.theme['gray-100']};
+
 
     &:disabled {
         opacity: 0.7; 
         cursor: not-allowed;
     }
 
-    &:not(:disabled):hover {
-        background: ${(props) => props.theme['green-700']};
-    }
+
 
 `
 
+export const StartCountdowButton = styled(BaseCountdowButton) `
+        background: ${(props) => props.theme['green-500']} ;
+        color: ${(props) => props.theme['gray-100']};
+
+        &:not(:disabled):hover {
+        background: ${(props) => props.theme['green-700']};
+    }
+`
+
+export const StopCountdowButton = styled(BaseCountdowButton) `
+        background: ${(props) => props.theme['red-500']} ;
+        
+
+        &:not(:disabled):hover {
+        background: ${(props) => props.theme['red-700']};
+    }    
+
+`
