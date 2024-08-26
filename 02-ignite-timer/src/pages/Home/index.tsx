@@ -107,7 +107,6 @@ export function Home() {
                 }
             }),
         )
-
         setActiveCycleId(null)
     }
 
