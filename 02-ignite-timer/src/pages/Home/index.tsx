@@ -52,11 +52,17 @@ export function Home() {
         }
     });
 
-    const { handleSubmit, watch, /* reset */ } = newCycleForm
+    const { handleSubmit, watch, reset } = newCycleForm
     
+    function handleCreateNewCycle (data: NewCycleFromData) {
+        createNewCycle(data)
+        reset()
+    }
 
     const task = watch('task')
     const isSubmitDisabled = !task;
+
+    
 
     /*
        * Prop Drilling -> Quando a gente tem MUITAS propriedades APENAS para comunicação entre componentes
@@ -65,7 +71,7 @@ export function Home() {
 
     return (
         <HomeContainer>
-            <form onSubmit={handleSubmit(createNewCycle)} action="">
+            <form onSubmit={handleSubmit(handleCreateNewCycle)} action="">
                 
                     <FormProvider {...newCycleForm}>
                         <NewCycleForm />
